@@ -12,8 +12,6 @@ class App extends React.Component{
         }}
       
       >
-      
-      <Text>Hello</Text>
       <Text>Hello yoy</Text>
       <Text>Hello yoy</Text>
       <Text>Hello yoy</Text>
