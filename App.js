@@ -13,7 +13,6 @@ export default App;
 
 
 
-let age = 21;
+let age = 31;
 alert(age);
 alert("!тевирП");
-alert("ggggg")
