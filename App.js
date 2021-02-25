@@ -26,6 +26,7 @@ class App extends React.Component{
 let age = 21;
 alert(age);
 alert("!тевирП");
+alert("ggggg")
 
 
 
