@@ -1,15 +1,17 @@
-import React from "react"
-import { Text, View } from "react-native"
+import React from "react";
+import { Text, View } from "react-native";
 import Button from "./components/Button";
+import Counter from "./components/Counter";
 
 class App extends React.Component {
   state = {
-      count: 0
+    count: 0
   }
-  increase =() =>{
-    this.setState({ count: this.state.count + 1})
+  increase = () => {
+    this.setState({ count: this.state.count + 1 })
   }
   render() {
+    console.log(this.state.count);
     return (
       <View
         style={{
@@ -18,8 +20,9 @@ class App extends React.Component {
           alignItems: "center"
         }}
       >
-        <Text>{this.state.count}</Text>
-        <Button increase={this.increase}/>
+        <Counter count={this.state.count} />
+
+        <Button increase={this.increase} />
       </View>
 
     )
