@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 
-
+var qw = "<---";
 class ButtonLeft extends React.Component {
+    
     render() {
         return (
             <TouchableOpacity onPress={this.props.reduce}>
-                <Text>Left</Text>
+                <Text>{qw}Left</Text>
             </TouchableOpacity>
         )
     }
