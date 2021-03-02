@@ -1,46 +1,47 @@
 import React from "react";
-import { Text, TextInput, View } from "react-native";
-import Button from "./components/Button";
-import Counter from "./components/Counter";
-import UselessTextInput from "./components/UselessTextInput";
-import UselessNumberInput from "./components/UselessNumberInput";
+import { Button, Image, Text, TextInput, View } from "react-native";
+import ButtonLeft from "./components/ButtonLeft";
+import ButtonRight from "./components/ButtonRight";
+
+const project = [{
+  photo: 'https://wallpapercave.com/wp/wp4943119.png',
+    },
+    {
+  photo: 'http://www.zoovet.ru/images/cats_clich.jpg',
+    },
+    {
+  photo: 'http://cat-lifes.com/wp-content/uploads/2015/03/smeshnye-kartinki-tancuyushhix-kotov-4.jpeg',
+    },
+  ]
 
 class App extends React.Component {
+  
   state = {
-    usrNm: '',
-    usrAge: 18,
     count: 0,
     entr: false
   }
 
-  setusrNm = (inputText) => {
-    this.setState({ usrNm: inputText })
+  right = () => {
+    this.setState({})
   }
-  setusrAge = (inputText) => {
-    this.setState({ usrAge: inputText })
+
+  left = () => {
+    this.setState({})
   }
+
+  increase =() =>{	  
+    this.setState({ count: this.state.count + 1})	    
+  }
+
+  reduce =() =>{	  
+    this.setState({ count: this.state.count - 1})	    
+  }
+  
   setDone = () => {
     this.setState({ entr: true })
   }
 
   render() {
-    if (this.state.entr)
-      return (
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <Text>Your Name:</Text>
-          <Text>{this.state.usrNm}</Text>
-          <Text>Your Age:</Text>
-          <Text>{this.state.usrAge}</Text>
-        </View>
-
-      )
-
     return (
       <View
         style={{
@@ -49,21 +50,35 @@ class App extends React.Component {
           alignItems: "center"
         }}
       >
-        <Text>Name</Text>
-        <TextInput
-          onChangeText={this.setusrNm}
-          placeholder="_______"
-        />
-        <Text>Age</Text>
-        <TextInput
-          onChangeText={this.setusrAge}
-          placeholder="_______"
-        />
-        <Button setDone={this.setDone} />
-        {this.state.entr && (<TextInput />)}
+        
+        
+        {this.state.count == 1 && <Image
+        style={{
+          width: 350,
+          height: 350,
+        }}
+        source={{
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
+        }}
+      />}
+        {this.state.count == 0 && <Image
+        style={{
+          width: 350,
+          height: 350,
+        }}
+        source={{
+          uri: 'https://wallpapercave.com/wp/wp4943119.png',
+        }}
+      />}
+        {this.state.count != 0 && <ButtonLeft reduce = {this.reduce}/>}
+        {this.state.count != 5 && <ButtonRight increase={this.increase}/>}
       </View>
 
     )
+
+
+
+
   }
 }
 export default App;
