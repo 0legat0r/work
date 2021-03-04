@@ -4,8 +4,6 @@ import {  Text, Switch, View } from 'react-native';
 
 
 class ButtonSwitch extends React.Component {
-    
-    
     render() {
         return (
             <View
