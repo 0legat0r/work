@@ -2,6 +2,7 @@ import React from "react";
 import { FlatList, ScrollView, Text, View } from "react-native";
 import ButtonSwitch from "./components/ButtonSwitch";
 import Button from "./components/Button"
+import Categories from './components/Categories'
 
 const picture1 = {
   id: 0,
@@ -67,70 +68,12 @@ class App extends React.Component {
     status3: false,
     status4: false
   }
-  toggleSwitch1 = () => {
-    this.setState({ status1: !this.state.status1 })
-  };
-  toggleSwitch2 = () => {
-    this.setState({ status2: !this.state.status2 })
-  };
-  toggleSwitch3 = () => {
-    this.setState({ status3: !this.state.status3 })
-  };
-  toggleSwitch4 = () => {
-    this.setState({ status4: !this.state.status4 })
-  };
 
   render() {
 
-    const renderItem = ({ item }) => (
-      <View >
-        {this.state.status1 && <Button picture={item.picture1} />}
-        {this.state.status1 && <Text style={{ flex: 1, textAlign: "center", color: 'green', fontSize: 30 }}>{item.text1}</Text>}
-        {this.state.status2 && <Button picture={item.picture2} />}
-        {this.state.status2 && <Text style={{ flex: 1, textAlign: "center", color: 'green', fontSize: 30 }}>{item.text2}</Text>}
-        {this.state.status3 && <Button picture={item.picture3} />}
-        {this.state.status3 && <Text style={{ flex: 1, textAlign: "center", color: 'green', fontSize: 30 }}>{item.text3}</Text>}
-
-      </View>
-    );
 
     return (
-      <View
-        style={{
-          display: "flex",
-          alignItems: "center"
-        }}>
-        <ScrollView
-          showsHorizontalScrollIndicator={false}
-          horizontal={true}>
-          <ButtonSwitch
-            name="Pizza"
-            status={this.state.status1}
-            toggleSwitch={this.toggleSwitch1}
-          />
-          <ButtonSwitch
-            name="Monument"
-            status={this.state.status2}
-            toggleSwitch={this.toggleSwitch2}
-          />
-          <ButtonSwitch
-            name="Goodbye"
-            status={this.state.status3}
-            toggleSwitch={this.toggleSwitch3}
-          />
-          <ButtonSwitch
-            name="Extra"
-            status={this.state.status4}
-            toggleSwitch={this.toggleSwitch4}
-          />
-
-        </ScrollView>
-        <FlatList
-          data={photos}
-          renderItem={renderItem}
-          keyExtractor={item => item.text2}
-        />
-      </View>
+      <Categories />
     )
   }
 }
