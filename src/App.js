@@ -1,17 +1,12 @@
-import React from "react";
-import { View } from "react-native";
-import Spisok from "./components/Spisok";
-
+import React from 'react'
+import RootNavigator from './navigators/RootNavigator'
 
 class App extends React.Component{
-  render(){
-    return(
-      <View>
-      <Spisok />
-      </View>
-    )
-  }
+    render(){
+        return (
+            <RootNavigator />
+        )
+    }
 }
 
-export default App;
-
+export default App
