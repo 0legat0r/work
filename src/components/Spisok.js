@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Text, TextInput, TouchableOpacity } from 'react-native'
 import SpisokPokupok from './SpisokPokupok'
+import CopyTest from './CopyTest'
+import { AppStore } from '../AppStore';
 
 idp = 0;
 
@@ -37,6 +39,15 @@ const Spisok = () => {
         pokupki.filter(pokupki => pokupki.isComplete !== true)
     )
 
+    const copyToClipboard = () => {
+        Clipboard.setString('hello world');
+      };
+    
+      const fetchCopiedText = async () => {
+        const text = await Clipboard.getString();
+        setCopiedText(text);
+      };
+
     return (
         <>
             <SpisokPokupok
@@ -50,6 +61,14 @@ const Spisok = () => {
                 placeholder="Add"
                 onSubmitEditing={addPokupki}
             />
+            <AppStore.Provider
+            value = {{
+                onCopy : copyToClipboard,
+                onPaste: fetchCopiedText
+            }}
+            >
+            <CopyTest/>
+            </AppStore.Provider>
             <TouchableOpacity
                 onPress = {delPokupkiall}
             >
