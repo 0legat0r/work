@@ -1,14 +1,9 @@
-import uuid from 'react-native-uuid'
-
-// const product = {
-//   id: 'number',
-//   name: 'string',
-//   isSelected: 'boolean',
-// }
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 
 export function createProduct(name) {
     return {
-        id: uuid.v4(),
+        id: uuidv4(),
         name,
         isSelected: false
     }

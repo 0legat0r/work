@@ -1,22 +1,22 @@
-import React from 'react'
-import {AppStore} from "../AppStore"
+import React from 'react';
+import AppState from "../store/Index"
 
-export function withState(Component){
-    class Wrap extends React.Component{
-        render(){
-            return(
-                <AppStore.Consumer>
+export function withState(Component) {
+    class Wrapper extends React.PureComponent {
+        render() {
+            return (
+                <AppState.Consumer>
                     {(state) => (
                         <Component
                             {...this.props}
                             {...state}
                         />
-                    )
-
-                    }
-                </AppStore.Consumer>
+                    )}
+                </AppState.Consumer>
             )
+
         }
     }
-    return Wrap
-} 
+
+    return Wrapper;
+}

@@ -1,16 +1,14 @@
-import React from 'react'
+import React from 'react';
 import ActionButton from 'react-native-action-button';
 
 class AddButton extends React.Component {
     render() {
-
-        const { onPress } = this.props
-
+        const { onPress } = this.props;
         return (
-            <ActionButton 
-                buttonColor="rgba(231,76,60,1)"
-                onPress={onPress}
-            />
+            <ActionButton
+                buttonColor="red"
+                onPress={onPress}>
+            </ActionButton>
         )
     }
 }
